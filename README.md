@@ -14,3 +14,6 @@ Command line arguments:
 `o` - output file name;
 
 `a` - action (encode or decode).
+
+
+To stop the program press `Ctrl + C`.
