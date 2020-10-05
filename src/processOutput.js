@@ -6,9 +6,15 @@ function processOutput(data, outputFile, action, shift) {
     if (!outputFile) {
         process.stdout.write(transformedData);
     } else {
-        fs.writeFile(outputFile, transformedData, (err) => {
+        fs.access(outputFile, fs.constants.W_OK, (err) => { 
             if (err) {
-                return console.error(err.message);
+                console.error('Output file doesn\'t exist or you don\'t have write access.'); 
+            } else {
+                fs.writeFile(outputFile, transformedData, (err) => {
+                    if (err) {
+                        return console.error(err.message);
+                    }
+                });
             }
         });
     }
