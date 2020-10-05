@@ -27,7 +27,7 @@ if (!input) {
     const fileName = input;
     fs.readFile(fileName, (err, data) => {
         if (err) {
-            return console.log(err);
+            return console.error(err.message);
         }
         processOutput(data, output, action, shift);
     });
